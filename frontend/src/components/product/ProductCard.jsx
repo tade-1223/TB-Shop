@@ -6,7 +6,7 @@ function ProductCard({ product }) {
   const { addToCart } = useCart();
   return (
     <Link
-      to={`/products/${product.id}`}
+      to={`/product/${product.id}`}
       className="block"
     >
       <div className="bg-white rounded-xl shadow-md hover:shadow-2xl overflow-hidden transition-all duration-300 hover:-translate-y-2">
