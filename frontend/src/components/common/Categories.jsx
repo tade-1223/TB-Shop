@@ -1,8 +1,11 @@
 const categories = [
-  { id: 1, name: "Electronics", icon: "📱" },
-  { id: 2, name: "Fashion", icon: "👕" },
-  { id: 3, name: "Home", icon: "🏠" },
-  { id: 4, name: "Beauty", icon: "💄" },
+  { id: 1, name: "Alls", icon: "🛒" },
+  { id: 2, name: "Electronics", icon: "📱" },
+  { id: 3, name: "Fashion", icon: "👕" },
+  { id: 4, name: "Home", icon: "🏠" },
+  { id: 5, name: "Beauty", icon: "💄" },
+  { id: 6, name: "Local Products", icon: "🛍️" },
+
 ];
 
 function Categories() {

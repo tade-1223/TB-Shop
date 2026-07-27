@@ -5,11 +5,14 @@ import "./index.css";
 
 import { BrowserRouter } from "react-router-dom";
 import { CartProvider } from "./context/CartContext";
+import { SearchProvider } from "./context/SearchContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
-    <CartProvider>
+    <SearchProvider>
+     <CartProvider>
       <App />
-    </CartProvider>
+     </CartProvider>
+    </SearchProvider>
   </BrowserRouter>
 );

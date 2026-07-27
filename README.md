@@ -1,42 +1,27 @@
-# TB-Shop
+# Ethiora
 
-TB-Shop is a modern full-stack e-commerce web application built with React, FastAPI, and PostgreSQL.
+Connecting Ethiopia Through Commerce.
+
+Ethiora is a modern Ethiopian online marketplace built with React, FastAPI, and PostgreSQL.
 
 ## Tech Stack
 
-### Frontend
 - React
 - Vite
 - Tailwind CSS
-- React Router
-- React Context API
-
-### Backend
 - FastAPI
-- SQLAlchemy
 - PostgreSQL
-- Alembic
+- SQLAlchemy
+- JWT Authentication
 
 ## Features
 
-- Home Page
-- Product Catalog
+- Product Search
+- Category Filter
 - Shopping Cart
 - Wishlist
-- User Authentication
+- Seller Dashboard
 - Admin Dashboard
-- Product Management
-- Responsive Design
-
-## Project Structure
-TB-Shop/
-│
-├── frontend/
-├── backend/
-├── database/
-├── docs/
-├── assets/
-
-## Author
-
-Tadesse Belay
+- Secure Authentication
+- Order Management
+- Ethiopian Payment Integration

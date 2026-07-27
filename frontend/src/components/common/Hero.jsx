@@ -5,18 +5,21 @@ function Hero() {
         {/* Left Content */}
         <div>
           <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6">
-            Shop Smarter with
-            <span className="text-yellow-300"> TB-Shop</span>
-          </h1>
+            Welcome to
+           <span className="text-yellow-300"> Ethiora</span>
+        </h1>
 
           <p className="text-lg text-blue-100 mb-8">
-            Discover quality products at affordable prices. Fast delivery,
-            secure payment, and the best shopping experience.
-          </p>
+  Connecting Ethiopia Through Commerce.
+  Discover quality electronics, fashion,
+  home essentials, beauty products,
+  and authentic Ethiopian products
+  from trusted local businesses.
+</p>
 
           <button className="bg-yellow-400 text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition">
-            Shop Now
-          </button>
+  Explore Marketplace
+</button>
         </div>
 
         {/* Right Content */}

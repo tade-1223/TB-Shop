@@ -31,7 +31,7 @@ function ProductCard({ product }) {
           </div>
 
           <p className="text-2xl font-bold text-blue-600 mt-3">
-            ${product.price}
+            ETB {product.price.toLocaleString()}
           </p>
 
           <button

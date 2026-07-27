@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useCart } from "../../hooks/useCart";
+import { useSearch } from "../../hooks/useSearch";
 import {
   FiSearch,
   FiHeart,
@@ -7,10 +8,9 @@ import {
   FiUser,
   FiMenu,
 } from "react-icons/fi";
-import { useState } from "react";
 
 function Navbar() {
-  const [search, setSearch] = useState("");
+  const { search, setSearch } = useSearch();
   const { cart } = useCart();
 
   return (
@@ -25,8 +25,9 @@ function Navbar() {
             to="/"
             className="text-3xl font-bold text-blue-600"
           >
-            🛍️ TB-Shop
-          </Link>
+<span className="text-3xl font-extrabold text-green-700">
+  Ethiora
+</span>          </Link>
 
           {/* Search */}
           <div className="hidden md:flex items-center bg-gray-100 rounded-lg px-4 py-2 w-[420px]">
