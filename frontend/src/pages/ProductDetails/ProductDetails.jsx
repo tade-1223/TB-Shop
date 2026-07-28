@@ -33,7 +33,7 @@ function ProductDetails() {
           </h1>
 
           <p className="text-2xl text-blue-600 mt-5">
-            ${product.price}
+            ETB {product.price.toLocaleString()}
           </p>
 
           <p className="mt-6 text-gray-600">

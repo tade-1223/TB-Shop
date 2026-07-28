@@ -1,32 +1,42 @@
-import products from "../../data/products";
 import ProductCard from "./ProductCard";
-import { useSearch } from "../../hooks/useSearch";
+import { useProducts } from "../../hooks/useProducts";
 
 function ProductGrid() {
- const { search } = useSearch();
+  const {
+    products,
+    search,
+    category,
+  } = useProducts();
+
+  let filteredProducts = [...products];
+
+  // Search
+  if (search) {
+    filteredProducts = filteredProducts.filter((product) =>
+      product.name.toLowerCase().includes(search.toLowerCase())
+    );
+  }
+
+  // Category
+  if (category !== "All") {
+    filteredProducts = filteredProducts.filter(
+      (product) => product.category === category
+    );
+  }
+
   return (
-    <section className="max-w-7xl mx-auto py-20 px-6">
+    <section className="max-w-7xl mx-auto px-6 py-12">
 
-      <h2 className="text-4xl font-bold text-center">
-        Featured Products
-      </h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
-      <p className="text-center text-gray-500 mt-3 mb-12">
-        Discover our best-selling products.
-      </p>
+        {filteredProducts.map((product) => (
+          <ProductCard
+            key={product.id}
+            product={product}
+          />
+        ))}
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-    {products
-      .filter((product) =>
-        product.name.toLowerCase().includes(search.toLowerCase())
-      )
-      .map((product) => (
-        <ProductCard
-          key={product.id}
-          product={product}
-        />
-      ))}
-  </div>
+      </div>
 
     </section>
   );

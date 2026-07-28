@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useCart } from "../../hooks/useCart";
-import { useSearch } from "../../hooks/useSearch";
+import { useProducts } from "../../hooks/useProducts";
+
 import {
   FiSearch,
   FiHeart,
@@ -10,7 +11,7 @@ import {
 } from "react-icons/fi";
 
 function Navbar() {
-  const { search, setSearch } = useSearch();
+  const { search, setSearch } = useProducts();
   const { cart } = useCart();
 
   return (
@@ -23,11 +24,10 @@ function Navbar() {
           {/* Logo */}
           <Link
             to="/"
-            className="text-3xl font-bold text-blue-600"
+            className="text-3xl font-bold text-green-700"
           >
-<span className="text-3xl font-extrabold text-green-700">
-  Ethiora
-</span>          </Link>
+            Ethiora
+          </Link>
 
           {/* Search */}
           <div className="hidden md:flex items-center bg-gray-100 rounded-lg px-4 py-2 w-[420px]">
@@ -41,6 +41,7 @@ function Navbar() {
               onChange={(e) => setSearch(e.target.value)}
               className="bg-transparent outline-none w-full"
             />
+
           </div>
 
           {/* Right Side */}
@@ -59,23 +60,12 @@ function Navbar() {
 
             <Link
               to="/cart"
-              className="relative text-2xl hover:text-blue-600"
+              className="relative text-2xl hover:text-green-700"
             >
               <FiShoppingCart />
 
               <span
-                className="absolute
-                -top-2
-                -right-2
-                bg-red-600
-                text-white
-                rounded-full
-                w-5
-                h-5
-                text-xs
-                flex
-                justify-center
-                items-center"
+                className="absolute -top-2 -right-2 bg-red-600 text-white rounded-full w-5 h-5 text-xs flex justify-center items-center"
               >
                 {cart.reduce((total, item) => total + item.quantity, 0)}
               </span>
@@ -84,7 +74,7 @@ function Navbar() {
 
             <Link
               to="/login"
-              className="text-2xl hover:text-blue-600"
+              className="text-2xl hover:text-green-700"
             >
               <FiUser />
             </Link>

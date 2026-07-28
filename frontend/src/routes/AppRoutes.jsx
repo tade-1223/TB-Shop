@@ -11,6 +11,7 @@ import Profile from "../pages/Profile/Profile";
 import Admin from "../pages/Admin/Admin";
 import ProductDetails from "../pages/ProductDetails/ProductDetails";
 import Wishlist from "../pages/Wishlist/Wishlist";
+import Footer from "../components/layout/Footer";
 
 export default function AppRoutes() {
   return (
@@ -28,6 +29,7 @@ export default function AppRoutes() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/admin" element={<Admin />} />
       </Routes>
+      <Footer />
     </>
   );
 }

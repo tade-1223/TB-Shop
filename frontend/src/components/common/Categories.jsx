@@ -1,3 +1,4 @@
+import { useProducts } from "../../hooks/useProducts";
 const categories = [
   { id: 1, name: "Alls", icon: "🛒" },
   { id: 2, name: "Electronics", icon: "📱" },
@@ -9,6 +10,7 @@ const categories = [
 ];
 
 function Categories() {
+const { category, setCategory } = useProducts();
   return (
     <section className="max-w-7xl mx-auto px-6 py-16">
       <div className="text-center mb-12">
