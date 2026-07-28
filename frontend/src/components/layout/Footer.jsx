@@ -81,7 +81,7 @@ function Footer() {
 
             <p className="flex items-center gap-2">
               <FiPhone />
-              +251 900 000 000
+              +251 960 723 202
             </p>
 
             <p className="flex items-center gap-2">

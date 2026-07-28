@@ -48,7 +48,7 @@ function Cart() {
             </h2>
 
             <p className="text-blue-600 mt-2">
-              ${item.price}
+              ETB {item.price}
             </p>
 
           </div>
@@ -78,7 +78,7 @@ function Cart() {
           <div>
 
             <p className="font-bold text-lg">
-              ${(item.price * item.quantity).toFixed(2)}
+              ETB {(item.price * item.quantity).toFixed(2)}
             </p>
 
             <button
@@ -97,7 +97,7 @@ function Cart() {
       <div className="text-right mt-10">
 
         <h2 className="text-3xl font-bold">
-          Total: ${total.toFixed(2)}
+          Total: ETB {total.toFixed(2)}
         </h2>
 
         <button

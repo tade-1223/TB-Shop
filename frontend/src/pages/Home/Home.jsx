@@ -3,6 +3,7 @@ import Categories from "../../components/common/Categories";
 import Newsletter from "../../components/home/Newsletter";
 
 import ProductSection from "../../components/product/ProductSection";
+import FilterBar from "../../components/product/FilterBar";
 
 function Home() {
   return (
@@ -10,6 +11,7 @@ function Home() {
       <Hero />
 
       <Categories />
+      <FilterBar />
 
       <ProductSection
         title="⭐ Featured Products"

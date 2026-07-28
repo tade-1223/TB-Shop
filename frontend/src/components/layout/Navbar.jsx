@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useCart } from "../../hooks/useCart";
 import { useProducts } from "../../hooks/useProducts";
+import { useWishlist } from "../../hooks/useWishlist";
 
 import {
   FiSearch,
@@ -11,6 +12,7 @@ import {
 } from "react-icons/fi";
 
 function Navbar() {
+  const { wishlist } = useWishlist();
   const { search, setSearch } = useProducts();
   const { cart } = useCart();
 
@@ -52,11 +54,15 @@ function Navbar() {
             </Link>
 
             <Link
-              to="/wishlist"
-              className="text-2xl hover:text-red-500"
-            >
-              <FiHeart />
-            </Link>
+  to="/wishlist"
+  className="relative text-2xl hover:text-red-500"
+>
+  <FiHeart />
+
+  <span className="absolute -top-2 -right-2 bg-red-600 text-white rounded-full w-5 h-5 text-xs flex justify-center items-center">
+    {wishlist.length}
+  </span>
+</Link>
 
             <Link
               to="/cart"

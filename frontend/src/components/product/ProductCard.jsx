@@ -1,50 +1,109 @@
 import { Link } from "react-router-dom";
-import { FiShoppingCart, FiStar } from "react-icons/fi";
+import { FiHeart, FiMapPin, FiShoppingCart } from "react-icons/fi";
 import { useCart } from "../../hooks/useCart";
+import { useWishlist } from "../../hooks/useWishlist";
 
 function ProductCard({ product }) {
   const { addToCart } = useCart();
+  const { toggleWishlist, isWishlisted } = useWishlist();
+
   return (
-    <Link
-      to={`/product/${product.id}`}
-      className="block"
-    >
-      <div className="bg-white rounded-xl shadow-md hover:shadow-2xl overflow-hidden transition-all duration-300 hover:-translate-y-2">
+    <div className="bg-white rounded-xl shadow hover:shadow-xl transition overflow-hidden">
 
-        <div className="overflow-hidden">
-          <img
-            src={product.image}
-            alt={product.name}
-            className="w-full h-56 object-cover hover:scale-110 transition duration-500"
-          />
-        </div>
+      {/* Image */}
 
-        <div className="p-5">
-          <h3 className="text-xl font-semibold">
-            {product.name}
-          </h3>
+      <div className="relative">
 
-          <div className="flex mt-2 text-yellow-500">
-            {[...Array(product.rating)].map((_, index) => (
-              <FiStar key={index} className="fill-yellow-400" />
-            ))}
-          </div>
+        <img
+          src={product.image}
+          alt={product.name}
+          className="h-60 w-full object-cover"
+        />
 
-          <p className="text-2xl font-bold text-blue-600 mt-3">
+        {product.newArrival && (
+          <span className="absolute top-3 left-3 bg-green-600 text-white px-3 py-1 rounded-full text-sm">
+            NEW
+          </span>
+        )}
+
+        <button
+  onClick={() => toggleWishlist(product)}
+  className={`absolute top-3 right-3 rounded-full p-2 shadow ${
+    isWishlisted(product.id)
+      ? "bg-red-500 text-white"
+      : "bg-white"
+  }`}
+>
+  <FiHeart />
+</button>
+
+      </div>
+
+      {/* Content */}
+
+      <div className="p-5">
+
+        <p className="text-yellow-500 font-semibold">
+          ⭐ {product.rating} ({product.reviews})
+        </p>
+
+        <h3 className="font-bold text-lg mt-2">
+          {product.name}
+        </h3>
+
+        <p className="text-gray-500">
+          {product.category}
+        </p>
+
+        <p className="flex items-center gap-2 text-gray-500 mt-2">
+          <FiMapPin />
+          {product.location}
+        </p>
+
+        <p className="text-sm text-gray-500">
+          Sold by {product.seller}
+        </p>
+
+        <div className="mt-4 flex justify-between items-center">
+
+          <p className="text-2xl font-bold text-green-700">
             ETB {product.price.toLocaleString()}
           </p>
 
+          <span
+            className={
+              product.stock > 0
+                ? "text-green-600"
+                : "text-red-600"
+            }
+          >
+            {product.stock > 0 ? "In Stock" : "Out of Stock"}
+          </span>
+
+        </div>
+
+        <div className="mt-5 space-y-3">
+
+          <Link
+            to={`/products/${product.id}`}
+            className="block text-center bg-gray-200 py-2 rounded-lg hover:bg-gray-300"
+          >
+            View Details
+          </Link>
+
           <button
             onClick={() => addToCart(product)}
-          className="w-full mt-4 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 flex justify-center items-center gap-2"
+            className="w-full bg-green-700 text-white py-2 rounded-lg hover:bg-green-800 flex justify-center items-center gap-2"
           >
             <FiShoppingCart />
             Add to Cart
           </button>
+
         </div>
 
       </div>
-    </Link>
+
+    </div>
   );
 }
 

@@ -1,5 +1,33 @@
+import ProductCard from "../../components/product/ProductCard";
+import { useWishlist } from "../../hooks/useWishlist";
+
 function Wishlist() {
-  return <h1 className="text-4xl text-center py-20">Wishlist</h1>;
+  const { wishlist } = useWishlist();
+
+  return (
+    <div className="max-w-7xl mx-auto py-12 px-6">
+
+      <h1 className="text-4xl font-bold mb-10">
+        My Wishlist
+      </h1>
+
+      {wishlist.length === 0 ? (
+        <p>Your wishlist is empty.</p>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+          {wishlist.map((product) => (
+            <ProductCard
+              key={product.id}
+              product={product}
+            />
+          ))}
+
+        </div>
+      )}
+
+    </div>
+  );
 }
 
 export default Wishlist;
