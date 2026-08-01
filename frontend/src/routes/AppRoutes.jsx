@@ -13,7 +13,8 @@ import ProductDetails from "../pages/ProductDetails/ProductDetails";
 import Wishlist from "../pages/Wishlist/Wishlist";
 import Footer from "../components/layout/Footer";
 import ForgotPassword from "../pages/ForgotPassword/ForgotPassword";
-
+import Dashboard from "../pages/Dashboard/Dashboard";
+import ProtectedRoute from "../components/ProtectedRoute";
 export default function AppRoutes() {
   return (
     <>
@@ -29,8 +30,10 @@ export default function AppRoutes() {
         <Route path="/register" element={<Register />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/admin" element={<Admin />} />
-        <Route path="/forgot-password" element={<ForgotPassword />}
-/>
+        <Route path="/forgot-password" element={<ForgotPassword />}/>      
+        <Route path="/dashboard" element={<ProtectedRoute>
+        <Dashboard /></ProtectedRoute>}/>
+        <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>}/>
       </Routes>
       <Footer />
     </>

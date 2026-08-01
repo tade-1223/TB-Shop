@@ -78,12 +78,9 @@ function Navbar() {
 
             </Link>
 
-            <Link
-              to="/login"
-              className="text-2xl hover:text-green-700"
-            >
-              <FiUser />
-            </Link>
+            <Link to="/profile">
+    <FiUser size={22} />
+</Link>
 
             {/* Mobile Menu */}
             <button className="md:hidden text-2xl">
